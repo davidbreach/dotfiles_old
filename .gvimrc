@@ -4,23 +4,23 @@
 " -----------------------------------------------------------------------------  
 
 " OS Specific *****************************************************************
+
 if has("gui_macvim")
- 
+  set background=dark
   set fuoptions=maxvert,maxhorz " fullscreen options (MacVim only), resized window when changed to fullscreen
 "  set guifont=Monaco:h11
 "  set guifont=Monaco:h10:cANSI
-"  set guioptions-=T  " remove toolbar
+  set go-=T " remove toolbar
+  hi normal guibg=black
   colorscheme macvim
+  set transp=5
 elseif has("gui_gtk2")
- 
   set guifont=Monaco
 "  set guioptions-=T  " remove toolbar
- 
 elseif has("x11")
-
   set guifont=-misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
-
 elseif has("gui_win32")
+  set guifont=Lucida\ Console:h8
 end
 
 " General *********************************************************************
@@ -54,16 +54,10 @@ set hlsearch
 " Text below the last line is darker grey
 " Cursor is green, Cyan when ":lmap" mappings are active
 " Constants are not underlined but have a slightly lighter background
-highlight Normal guibg=grey90
-highlight Cursor guibg=Green guifg=NONE
-highlight lCursor guibg=Cyan guifg=NONE
-highlight NonText guibg=grey80
-highlight Constant gui=NONE guibg=grey95
-highlight Special gui=NONE guibg=grey95
+"highlight Normal guibg=grey90
+"highlight Cursor guibg=Green guifg=NONE
+"highlight lCursor guibg=Cyan guifg=NONE
+"highlight NonText guibg=grey80
+"highlight Constant gui=NONE guibg=grey95
+"highlight Special gui=NONE guibg=grey95
 
-" General appearance (remove toolbar, dark background)
-set go-=T
-if &background == "dark"
-  hi normal guibg=black
-  set transp=5
-endif
