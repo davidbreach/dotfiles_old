@@ -9,6 +9,10 @@ set nocompatible
 " Backups *******************************************************************
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
+elseif has ("gui_win32")
+  source $VIMRUNTIME/vimrc_example.vim
+  source $VIMRUNTIME/mswin.vim
+behave mswin
 else
   set backup		" keep a backup file
 endif
@@ -34,7 +38,10 @@ colorscheme ir_black
 set bg=dark
 " Don't use Ex mode, use Q for formatting
 map Q gq
-
+" Use VB syntax for LIMSBasic .lbs files
+"au BufNewFile,BufRead *.lbs so $HOME/.vim/syntax/limsbasic.vim
+"au BufNewFile,BufRead *.lbs so $HOME/vimfiles/syntax/limsbasic.vim
+au BufNewFile,BufRead *.lbs so $VIMRUNTIME/syntax/vb.vim
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")

@@ -4,8 +4,10 @@
 " -----------------------------------------------------------------------------  
 
 " OS Specific *****************************************************************
-
 if has("gui_macvim")
+  " Default size of window
+  set columns=120
+  set lines=50
   set background=dark
   set fuoptions=maxvert,maxhorz " fullscreen options (MacVim only), resized window when changed to fullscreen
 "  set guifont=Monaco:h11
@@ -20,15 +22,18 @@ elseif has("gui_gtk2")
 elseif has("x11")
   set guifont=-misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
 elseif has("gui_win32")
+  " Default size of window
+  set columns=120
+  set lines=70
+  set background=dark
+  "colorscheme darkblue
+  set go-=T " remove toolbar
+  colorscheme ir_black
   set guifont=Lucida\ Console:h8
 end
 
 " General *********************************************************************
 "set anti " Antialias font
-
-" Default size of window
-set columns=120
-set lines=50
 
 set ch=2		" Make command line two lines high
 
