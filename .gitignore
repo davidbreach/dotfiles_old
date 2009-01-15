@@ -1,0 +1,9 @@
+*
+!.autotest
+!.bash_profile
+!.bashrc
+!.gitignore
+!.profile
+!.screenrc
+!.vimrc
+!.gvimrc
