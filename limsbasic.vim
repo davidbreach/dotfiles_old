@@ -111,7 +111,7 @@ syn keyword lbFunction SQL SQLSelect IsEmpty IsNull IsNumeric
 syn keyword lbMethods Abort BackgroundSubroutine Breakpoint CodeSearch
 syn keyword lbMethods DeactivateExpiredStandard DebugMessage Execute
 syn keyword lbMethods GetGlobalVariable NLS SelectSample SetGlobalVariable
-syn keyword lbMethods StatusMessage Subroutine Trace
+syn keyword lbMethods StatusMessage Subroutine Trace DialogCanceled
 syn keyword lbMethods UpdateAnalysisApprovalExpiration
 syn keyword lbMethods UpdateInstrumentApprovalExpiration Wait IsODBCOpen
 syn keyword lbMethods ODBCClose ODBCColumns ODBCDateTimeStamp ODBCOpen
@@ -194,6 +194,56 @@ if version >= 508 || !exists("did_vb_syntax_inits")
 		command -nargs=+ HiLink hi def link <args>
 	endif
 
+" Highlight groups
+"
+"	 *Comment	any comment
+
+"	*Constant	any constant
+"	 String		a string constant: "this is a string"
+"	 Character	a character constant: 'c', '\n'
+"	 Number		a number constant: 234, 0xff
+"	 Boolean	a boolean constant: TRUE, false
+"	 Float		a floating point constant: 2.3e10
+"
+"	*Identifier	any variable name
+"	 Function	function name (also: methods for classes)
+"
+"	*Statement	any statement
+"	 Conditional	if, then, else, endif, switch, etc.
+"	 Repeat		for, do, while, etc.
+"	 Label		case, default, etc.
+"	 Operator	"sizeof", "+", "*", etc.
+"	 Keyword	any other keyword
+"	 Exception	try, catch, throw
+"
+"	*PreProc	generic Preprocessor
+"	 Include	preprocessor #include
+"	 Define		preprocessor #define
+"	 Macro		same as Define
+"	 PreCondit	preprocessor #if, #else, #endif, etc.
+"
+"	*Type		int, long, char, etc.
+"	 StorageClass	static, register, volatile, etc.
+"	 Structure	struct, union, enum, etc.
+"	 Typedef	A typedef
+"
+"	*Special	any special symbol
+"	 SpecialChar	special character in a constant
+"	 Tag		you can use CTRL-] on this
+"	 Delimiter	character that needs attention
+"	 SpecialComment	special things inside a comment
+"	 Debug		debugging statements
+"
+"	*Underlined	text that stands out, HTML links
+"
+"	*Ignore		left blank, hidden
+"
+"	*Error		any erroneous construct
+"
+"	*Todo		anything that needs extra attention; mostly the
+"			keywords TODO FIXME and XXX
+
+
 	"HiLink lbBoolean		Boolean
 	"HiLink lbLineNumber		Comment
 	"HiLink lbComment		Comment
@@ -223,6 +273,7 @@ if version >= 508 || !exists("did_vb_syntax_inits")
 	HiLink lbConst			Constant
 	HiLink lbDefine			Constant
 	HiLink lbError			Error
+	"HiLink lbFunction		Function
 	HiLink lbFunction		Identifier
 	HiLink lbIdentifier		Identifier
 	HiLink lbNumber			Number
@@ -242,6 +293,6 @@ if version >= 508 || !exists("did_vb_syntax_inits")
 	delcommand HiLink
 endif
 
-let b:current_syntax = "vb"
+let b:current_syntax = "limsbasic"
 
 " vim: ts=8
